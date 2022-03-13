@@ -40,7 +40,10 @@ class ShowListNoteFragment : Fragment() {
             findNavController().navigate(action)
         }
 
-        val adapter = NoteAdapter({viewModel.isFav(it)},{})
+        val adapter = NoteAdapter({viewModel.isFav(it)},{
+            val action = ShowListNoteFragmentDirections.actionShowListNoteFragmentToDetailFragment(it.id , it.titleDate , it.description)
+            findNavController().navigate(action)
+        })
         binding?.recyclerView?.adapter = adapter
         viewModel.allNoteLiveData.observe(viewLifecycleOwner, {
             it.let {

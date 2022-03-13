@@ -35,7 +35,11 @@ class ShowListNoteViewModel(val repository: NoteRepository):ViewModel() {
         }
     }
     fun isFav (noteDataModel: NoteDataModel) {
-        noteDataModel.isFav = true
+        if (noteDataModel.isFav){
+            noteDataModel.isFav = false
+        }else if (!noteDataModel.isFav){
+            noteDataModel.isFav = true
+        }
         favUpdate(noteDataModel)
 
     }
