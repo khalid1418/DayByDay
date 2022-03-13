@@ -40,5 +40,25 @@
         <argument
             android:name="description"
             app:argType="string" />
+        <action
+            android:id="@+id/action_detailFragment_to_editNoteFragment"
+            app:destination="@id/editNoteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editNoteFragment"
+        android:name="com.khalid.daybyday.editNoteUi.EditNoteFragment"
+        android:label="fragment_edit_note"
+        tools:layout="@layout/fragment_edit_note" >
+        <action
+            android:id="@+id/action_editNoteFragment_to_showListNoteFragment"
+            app:destination="@id/showListNoteFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument android:name="description"
+            app:argType="string" />
     </fragment>
 </navigation>

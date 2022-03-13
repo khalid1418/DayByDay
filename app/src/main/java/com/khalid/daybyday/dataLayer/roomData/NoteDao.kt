@@ -12,4 +12,8 @@ interface NoteDao {
     fun showNote() : Flow<List<NoteDataModel?>?>
     @Update
     suspend fun favUpdate(noteDataModel: NoteDataModel)
+
+    @Update
+    suspend fun updateNote(noteDataModel: NoteDataModel)
+
 }

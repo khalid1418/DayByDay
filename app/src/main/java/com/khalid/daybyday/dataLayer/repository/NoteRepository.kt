@@ -1,5 +1,6 @@
 package com.khalid.daybyday.dataLayer.repository
 
+import android.util.Log
 import com.khalid.daybyday.dataLayer.roomData.NoteDao
 import com.khalid.daybyday.dataLayer.roomData.NoteDataModel
 import kotlinx.coroutines.flow.Flow
@@ -15,5 +16,9 @@ class NoteRepository(private val noteDao: NoteDao) : Repository {
 
     override suspend fun favUpdate(noteDataModel: NoteDataModel) {
         noteDao.favUpdate(noteDataModel)
+    }
+
+    override suspend fun updateNote(noteDataModel: NoteDataModel) {
+        noteDao.updateNote(noteDataModel)
     }
 }

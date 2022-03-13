@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.khalid.daybyday.R
 import com.khalid.daybyday.databinding.FragmentDetailBinding
@@ -34,6 +35,13 @@ class DetailFragment : Fragment() {
     fun alltask() {
         binding?.title?.text = navArgument.title
         binding?.description?.text = navArgument.description
+        binding?.edit?.setOnClickListener {
+            complete()
+        }
 
+    }
+    fun complete(){
+        val action = DetailFragmentDirections.actionDetailFragmentToEditNoteFragment(navArgument.id , navArgument.title , navArgument.description)
+        findNavController().navigate(action)
     }
 }

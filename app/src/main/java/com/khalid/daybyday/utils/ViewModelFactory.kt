@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.khalid.daybyday.addNoteUi.AddNoteViewModel
 import com.khalid.daybyday.dataLayer.repository.NoteRepository
+import com.khalid.daybyday.editNoteUi.EditNoteViewModel
 import com.khalid.daybyday.showListNoteUi.ShowListNoteViewModel
 import java.lang.IllegalArgumentException
 
@@ -17,6 +18,10 @@ class ViewModelFactory(val repository: NoteRepository):ViewModelProvider.Factory
             modelClass.isAssignableFrom(ShowListNoteViewModel::class.java)->{
                 @Suppress("UNCHECKED_CAST")
                 return ShowListNoteViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(EditNoteViewModel::class.java) -> {
+                @Suppress("UNCHECKED_CAST")
+                return EditNoteViewModel(repository) as T
             }
         }
         throw IllegalArgumentException("Unknown ViewModel class")
