@@ -8,4 +8,5 @@ interface Repository {
     suspend fun addNote(noteDataModel: NoteDataModel)
 
     suspend fun showNote() : Flow<List<NoteDataModel?>?>
+    suspend fun favUpdate(noteDataModel: NoteDataModel)
 }

@@ -12,4 +12,8 @@ class NoteRepository(private val noteDao: NoteDao) : Repository {
     override suspend fun showNote(): Flow<List<NoteDataModel?>?> {
         return noteDao.showNote()
     }
+
+    override suspend fun favUpdate(noteDataModel: NoteDataModel) {
+        noteDao.favUpdate(noteDataModel)
+    }
 }

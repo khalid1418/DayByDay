@@ -40,8 +40,7 @@ class ShowListNoteFragment : Fragment() {
             findNavController().navigate(action)
         }
 
-        val adapter = NoteAdapter {
-        }
+        val adapter = NoteAdapter({viewModel.isFav(it)},{})
         binding?.recyclerView?.adapter = adapter
         viewModel.allNoteLiveData.observe(viewLifecycleOwner, {
             it.let {

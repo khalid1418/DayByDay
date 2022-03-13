@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.khalid.daybyday.dataLayer.roomData.NoteDataModel
 import com.khalid.daybyday.databinding.NoteItemBinding
 
-class NoteAdapter(private val onItemClicked: (NoteDataModel) -> Unit) :
+class NoteAdapter(private val onFavClicked:(NoteDataModel) -> Unit , private val onItemClicked: (NoteDataModel) -> Unit) :
     ListAdapter<NoteDataModel, NoteAdapter.NoteViewHolder>(DiffCallback) {
 
 
@@ -34,13 +34,14 @@ class NoteAdapter(private val onItemClicked: (NoteDataModel) -> Unit) :
 
     }
 
-    class NoteViewHolder(private val binding: NoteItemBinding) :
+    class NoteViewHolder(var binding: NoteItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(dataModel: NoteDataModel) {
             binding.apply {
 
                 title.text = dataModel.titleDate
                 description.text = dataModel.description
+
 
             }
 
@@ -63,8 +64,12 @@ class NoteAdapter(private val onItemClicked: (NoteDataModel) -> Unit) :
         Log.e("TAG", "onBindViewHolder: ${current.titleDate}", )
         holder.itemView.setOnClickListener {
             onItemClicked(current)
-        }
 
+        }
+        Log.e("TAG", "onBindViewHolder:${current.isFav} ", )
+        holder.binding.fav.setOnClickListener {
+            onFavClicked(current)
+        }
 
     }
 }

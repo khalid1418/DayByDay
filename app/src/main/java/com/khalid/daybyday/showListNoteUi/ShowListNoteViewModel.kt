@@ -29,5 +29,15 @@ class ShowListNoteViewModel(val repository: NoteRepository):ViewModel() {
             }
         }
     }
+    fun favUpdate(noteDataModel: NoteDataModel){
+        viewModelScope.launch {
+            repository.favUpdate(noteDataModel)
+        }
+    }
+    fun isFav (noteDataModel: NoteDataModel) {
+        noteDataModel.isFav = true
+        favUpdate(noteDataModel)
+
+    }
 
 }

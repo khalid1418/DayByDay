@@ -12,5 +12,7 @@ data class NoteDataModel(
     @ColumnInfo
     val titleDate:String,
     @ColumnInfo
-    val description:String
+    val description:String,
+    @ColumnInfo
+    var isFav:Boolean=false
 )
