@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/showListNoteFragment"
-        android:name="com.khalid.daybyday.ShowListNoteFragment"
+        android:name="com.khalid.daybyday.showListNoteUi.ShowListNoteFragment"
         android:label="fragment_show_list_note"
         tools:layout="@layout/fragment_show_list_note" >
         <action
