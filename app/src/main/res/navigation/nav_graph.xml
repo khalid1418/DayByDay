@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/showListNoteFragment">
+
+    <fragment
+        android:id="@+id/showListNoteFragment"
+        android:name="com.khalid.daybyday.showListNoteUi.ShowListNoteFragment"
+        android:label="fragment_show_list_note"
+        tools:layout="@layout/fragment_show_list_note" >
+        <action
+            android:id="@+id/action_showListNoteFragment_to_addNoteFragment"
+            app:destination="@id/addNoteFragment" />
+        <action
+            android:id="@+id/action_showListNoteFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNoteFragment"
+        android:name="com.khalid.daybyday.addNoteUi.AddNoteFragment"
+        android:label="fragment_add_note"
+        tools:layout="@layout/fragment_add_note" >
+        <action
+            android:id="@+id/action_addNoteFragment_to_showListNoteFragment"
+            app:destination="@id/showListNoteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.khalid.daybyday.detailNoteUi.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="description"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_detailFragment_to_editNoteFragment"
+            app:destination="@id/editNoteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editNoteFragment"
+        android:name="com.khalid.daybyday.editNoteUi.EditNoteFragment"
+        android:label="fragment_edit_note"
+        tools:layout="@layout/fragment_edit_note" >
+        <action
+            android:id="@+id/action_editNoteFragment_to_showListNoteFragment"
+            app:destination="@id/showListNoteFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument android:name="description"
+            app:argType="string" />
+    </fragment>
+</navigation>
