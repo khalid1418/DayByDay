@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.khalid.daybyday.dataLayer.roomData.NoteDataModel
@@ -39,7 +40,7 @@ class ShowListNoteFragment : Fragment() {
             findNavController().navigate(action)
         }
 
-        val adapter = NoteAdapter({viewModel.isFav(it)},{
+        val adapter = NoteAdapter({viewModel.isFav(it)},{viewModel.delete(it)},{
             val action = ShowListNoteFragmentDirections.actionShowListNoteFragmentToDetailFragment(it.id , it.titleDate , it.description)
             findNavController().navigate(action)
         })
@@ -50,10 +51,37 @@ class ShowListNoteFragment : Fragment() {
             }
         })
 
+        binding?.favList?.setOnClickListener {
+            viewModel.favListLiveData.observe(viewLifecycleOwner,{
+                it.let {
+                    adapter.submitList(it)
+                }
+            })
+        }
+
+        binding?.search?.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
+            android.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                query.let {
+                    viewModel.search(it)
+                }
+
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return false
+
+            }
+
+
+        })
+
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding=null
     }
+
 }
