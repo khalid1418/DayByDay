@@ -21,7 +21,6 @@ class ShowListNoteFragment : Fragment() {
     private val viewModel:ShowListNoteViewModel by activityViewModels {
         ViewModelFactory((activity?.application as DayByDayApplication).repository)
     }
-    val testList = listOf(NoteDataModel(34,"343","454"))
 
 
     override fun onCreateView(
@@ -47,10 +46,14 @@ class ShowListNoteFragment : Fragment() {
         binding?.recyclerView?.adapter = adapter
         viewModel.allNoteLiveData.observe(viewLifecycleOwner, {
             it.let {
-                Log.e("TAG", "onViewCreatedADApter:{ $it } ",  )
                 adapter.submitList(it)
             }
         })
 
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding=null
     }
 }

@@ -82,4 +82,8 @@ private var _binding:FragmentAddNoteBinding?=null
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding=null
+    }
 }
