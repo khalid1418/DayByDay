@@ -1,7 +1,6 @@
 package com.khalid.daybyday.editNoteUi
 
-import android.util.Log
-import android.view.View
+
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.khalid.daybyday.dataLayer.repository.NoteRepository
@@ -13,7 +12,6 @@ class EditNoteViewModel(val repository: NoteRepository) : ViewModel() {
     fun updateNote(noteDataModel: NoteDataModel) {
         viewModelScope.launch {
             repository.updateNote(noteDataModel)
-            Log.e("TAG", "updateNote: ${noteDataModel}", )
         }
     }
 
@@ -52,4 +50,6 @@ class EditNoteViewModel(val repository: NoteRepository) : ViewModel() {
         }
         return true
     }
+
+
 }

@@ -44,4 +44,9 @@ class DetailFragment : Fragment() {
         val action = DetailFragmentDirections.actionDetailFragmentToEditNoteFragment(navArgument.id , navArgument.title , navArgument.description)
         findNavController().navigate(action)
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding=null
+    }
 }
