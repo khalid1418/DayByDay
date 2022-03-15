@@ -70,9 +70,9 @@ class NoteAdapter(private val onFavClicked:(NoteDataModel) -> Unit ,private val 
         holder.binding.fav.setOnClickListener {
             onFavClicked(current)
         }
-        holder.binding.delete.setOnClickListener {
-            onDeleteClick(current)
-        }
+//        holder.binding.delete.setOnClickListener {
+//            onDeleteClick(current)
+//        }
 
     }
 }

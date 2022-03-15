@@ -22,9 +22,9 @@ class ShowListNoteViewModel(val repository: NoteRepository):ViewModel() {
     val favList:StateFlow<List<NoteDataModel?>?> = _favList.asStateFlow()
     val favListLiveData = favList.asLiveData()
 
-    val _search = MutableStateFlow<List<NoteDataModel?>?>(emptyList())
-    val search :StateFlow<List<NoteDataModel?>?> = _search.asStateFlow()
-    val searchLiveData = search.asLiveData()
+//    val _search = MutableStateFlow<List<NoteDataModel?>?>(emptyList())
+//    val search :StateFlow<List<NoteDataModel?>?> = _search.asStateFlow()
+//    val searchLiveData = search.asLiveData()
 
     init {
         showNote()

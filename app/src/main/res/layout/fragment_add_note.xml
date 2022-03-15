@@ -18,7 +18,7 @@
         android:background="@drawable/custom_input"
         android:fontFamily="sans-serif-smallcaps"
         android:gravity="center"
-        android:text="Date of Day"
+        android:hint="Date of Day"
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"

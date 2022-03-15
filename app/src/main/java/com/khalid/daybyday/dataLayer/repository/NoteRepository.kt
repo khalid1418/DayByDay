@@ -32,9 +32,9 @@ class NoteRepository(private val noteDao: NoteDao) : Repository {
     noteDao.delete(noteDataModel)
     }
 
-    override suspend fun search(date: String): Flow<List<NoteDataModel?>?> = flow {
+    override suspend fun search(date: String): Flow<List<NoteDataModel?>> = flow {
         showNote().collect{ list ->
-            emit(list?.filter { it?.titleDate!!.contains(date,ignoreCase = true) })
+            emit(list!!.filter { it?.titleDate!!.contains(date,ignoreCase = true) })
         }
     }
 }

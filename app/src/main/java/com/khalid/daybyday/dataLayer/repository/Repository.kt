@@ -12,5 +12,5 @@ interface Repository {
     suspend fun updateNote(noteDataModel: NoteDataModel)
     suspend fun favList():Flow<List<NoteDataModel?>?>
     suspend fun delete(noteDataModel: NoteDataModel)
-    suspend fun search(date:String):Flow<List<NoteDataModel?>?>
+    suspend fun search(date:String):Flow<List<NoteDataModel?>>
 }
