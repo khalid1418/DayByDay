@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ONE/AndroidStudioProjects/DayByDay/app/src/main/res/layout/activity_splash.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/ONE/AndroidStudioProjects/DayByDay/app/src/main/res/layout/fragment_add_note.xml" value="0.2625" />
+        <entry key="..\:/Users/ONE/AndroidStudioProjects/DayByDay/app/src/main/res/layout/fragment_detail.xml" value="0.2625" />
+        <entry key="..\:/Users/ONE/AndroidStudioProjects/DayByDay/app/src/main/res/layout/fragment_edit_note.xml" value="0.2625" />
         <entry key="..\:/Users/kaled/Desktop/DayByDay/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/kaled/Desktop/DayByDay/app/src/main/res/layout/fragment_add_note.xml" value="0.4" />
         <entry key="..\:/Users/kaled/Desktop/DayByDay/app/src/main/res/layout/fragment_detail.xml" value="0.152" />
