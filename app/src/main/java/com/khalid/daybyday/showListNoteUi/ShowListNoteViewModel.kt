@@ -18,17 +18,12 @@ class ShowListNoteViewModel(val repository: NoteRepository):ViewModel() {
     val allNoteLiveData = allNotes.asLiveData()
 
 
-    val _favList = MutableStateFlow<List<NoteDataModel?>?>(emptyList())
-    val favList:StateFlow<List<NoteDataModel?>?> = _favList.asStateFlow()
-    val favListLiveData = favList.asLiveData()
 
-//    val _search = MutableStateFlow<List<NoteDataModel?>?>(emptyList())
-//    val search :StateFlow<List<NoteDataModel?>?> = _search.asStateFlow()
-//    val searchLiveData = search.asLiveData()
+
+
 
     init {
         showNote()
-        showFev()
     }
 
     fun showNote(){
@@ -40,14 +35,7 @@ class ShowListNoteViewModel(val repository: NoteRepository):ViewModel() {
         }
     }
 //
-    fun showFev(){
-        viewModelScope.launch {
-            repository.favList().collect{ favTask ->
-                _favList.update { favTask }
-                Log.d("TAG", "showFev: $_favList ")
-            }
-        }
-    }
+
 
 
     fun favUpdate(noteDataModel: NoteDataModel){

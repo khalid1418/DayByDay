@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.khalid.daybyday.R
 import com.khalid.daybyday.dataLayer.roomData.NoteDataModel
 import com.khalid.daybyday.databinding.FragmentShowListNoteBinding
+import com.khalid.daybyday.favNoteUi.ShowMyFavoriteFragmentDirections
 import com.khalid.daybyday.utils.DayByDayApplication
 import com.khalid.daybyday.utils.ViewModelFactory
 
@@ -21,7 +22,7 @@ class ShowListNoteFragment : Fragment() {
     private val viewModel: ShowListNoteViewModel by activityViewModels {
         ViewModelFactory((activity?.application as DayByDayApplication).repository)
     }
-    val adapter = NoteAdapter({ viewModel.isFav(it) }, { viewModel.delete(it) }, {
+    val adapter = NoteAdapter({viewModel.isFav(it) }, { viewModel.delete(it) }, {
         val action = ShowListNoteFragmentDirections.actionShowListNoteFragmentToDetailFragment(
             it.id,
             it.titleDate,
@@ -87,22 +88,14 @@ class ShowListNoteFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.myfav ->{
-                viewModel.favListLiveData.observe(viewLifecycleOwner, {
-                    it.let {
-                        adapter.submitList(it)
-                    }
-                })
-            }
-            R.id.show_all ->{
-                viewModel.allNoteLiveData.observe(viewLifecycleOwner) {
-                    it.let {
-                        adapter.submitList(it)
-                    }
-                }
+                val action = ShowListNoteFragmentDirections.actionShowListNoteFragmentToShowMyFavoriteFragment()
+                findNavController().navigate(action)
+
             }
         }
         return true
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
