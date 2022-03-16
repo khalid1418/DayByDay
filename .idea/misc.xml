@@ -3,13 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/aymn7/AndroidStudioProjects/DayByDayOrg/app/src/main/res/layout/fragment_show_list_note.xml" value="0.1" />
+        <entry key="..\:/Users/aymn7/AndroidStudioProjects/DayByDayOrg/app/src/main/res/layout/note_item.xml" value="0.2" />
+        <entry key="..\:/Users/kaled/AndroidStudioProjects/DayByDay/app/src/main/res/layout/activity_splash.xml" value="0.11041666666666666" />
+        <entry key="..\:/Users/kaled/AndroidStudioProjects/DayByDay/app/src/main/res/layout/fragment_add_note.xml" value="0.264" />
+        <entry key="..\:/Users/kaled/AndroidStudioProjects/DayByDay/app/src/main/res/layout/fragment_show_list_note.xml" value="0.13858695652173914" />
+        <entry key="..\:/Users/kaled/AndroidStudioProjects/DayByDay/app/src/main/res/layout/fragment_show_my_favorite.xml" value="0.13858695652173914" />
+        <entry key="..\:/Users/kaled/AndroidStudioProjects/DayByDay/app/src/main/res/layout/note_item.xml" value="0.4" />
+        <entry key="..\:/Users/kaled/AndroidStudioProjects/DayByDay/app/src/main/res/menu/list_menu.xml" value="0.25" />
         <entry key="..\:/Users/kaled/Desktop/DayByDay/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
-        <entry key="..\:/Users/kaled/Desktop/DayByDay/app/src/main/res/layout/fragment_add_note.xml" value="0.4" />
+        <entry key="..\:/Users/kaled/Desktop/DayByDay/app/src/main/res/layout/fragment_add_note.xml" value="0.136" />
         <entry key="..\:/Users/kaled/Desktop/DayByDay/app/src/main/res/layout/fragment_detail.xml" value="0.152" />
         <entry key="..\:/Users/kaled/Desktop/DayByDay/app/src/main/res/layout/fragment_edit_note.xml" value="0.264" />
         <entry key="..\:/Users/kaled/Desktop/DayByDay/app/src/main/res/layout/fragment_show_list_note.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/kaled/Desktop/DayByDay/app/src/main/res/layout/note_item.xml" value="0.264" />
-        <entry key="app/src/main/res/menu/update_note_fragment_menu.xml" value="0.1" />
       </map>
     </option>
   </component>
