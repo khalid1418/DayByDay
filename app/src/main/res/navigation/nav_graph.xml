@@ -24,6 +24,9 @@
             app:exitAnim="@anim/to_right"
             app:popEnterAnim="@anim/from_right"
             app:popExitAnim="@anim/to_left" />
+        <action
+            android:id="@+id/action_showListNoteFragment_to_showMyFavoriteFragment"
+            app:destination="@id/showMyFavoriteFragment" />
     </fragment>
     <fragment
         android:id="@+id/addNoteFragment"
@@ -68,5 +71,17 @@
             app:argType="string" />
         <argument android:name="description"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/showMyFavoriteFragment"
+        android:name="com.khalid.daybyday.favNoteUi.ShowMyFavoriteFragment"
+        android:label="fragment_show_my_favorite"
+        tools:layout="@layout/fragment_show_my_favorite" >
+        <action
+            android:id="@+id/action_showMyFavoriteFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_showMyFavoriteFragment_to_showListNoteFragment"
+            app:destination="@id/showListNoteFragment" />
     </fragment>
 </navigation>

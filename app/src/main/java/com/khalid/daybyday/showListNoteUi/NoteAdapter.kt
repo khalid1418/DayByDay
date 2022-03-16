@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.khalid.daybyday.R
 import com.khalid.daybyday.dataLayer.roomData.NoteDataModel
 import com.khalid.daybyday.databinding.NoteItemBinding
 
@@ -41,6 +42,13 @@ class NoteAdapter(private val onFavClicked:(NoteDataModel) -> Unit ,private val 
 
                 title.text = dataModel.titleDate
                 description.text = dataModel.description
+                if (dataModel.isFav){
+                    fav.playAnimation()
+                }else{
+                    fav.frame=1
+                }
+
+
 
 
             }
@@ -52,13 +60,13 @@ class NoteAdapter(private val onFavClicked:(NoteDataModel) -> Unit ,private val 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): NoteViewHolder {
-        return NoteViewHolder(
+    ): NoteAdapter.NoteViewHolder {
+        return NoteAdapter.NoteViewHolder(
             NoteItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
     }
 
-    override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: NoteAdapter.NoteViewHolder, position: Int) {
         val current = getItem(position)
         holder.bind(current)
         Log.e("TAG", "onBindViewHolder: ${current.titleDate}", )
@@ -68,6 +76,12 @@ class NoteAdapter(private val onFavClicked:(NoteDataModel) -> Unit ,private val 
         }
         Log.e("TAG", "onBindViewHolder:${current.isFav} ", )
         holder.binding.fav.setOnClickListener {
+            if (!current.isFav){
+                holder.binding.fav.playAnimation()
+
+            }else if (current.isFav==true){
+                holder.binding.fav.frame=1
+            }
             onFavClicked(current)
         }
 //        holder.binding.delete.setOnClickListener {

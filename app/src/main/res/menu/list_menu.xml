@@ -6,8 +6,5 @@
         android:title="MyFavorite"
         app:showAsAction="never"/>
 
-    <item
-        android:id="@+id/show_all"
-        android:title="ShowAll"
-        app:showAsAction="never"/>
+
 </menu>
