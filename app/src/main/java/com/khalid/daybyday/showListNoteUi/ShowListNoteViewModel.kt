@@ -1,6 +1,7 @@
 package com.khalid.daybyday.showListNoteUi
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
@@ -17,6 +18,10 @@ class ShowListNoteViewModel(val repository: NoteRepository):ViewModel() {
     val allNoteLiveData = allNotes.asLiveData()
 
 
+
+
+
+
     init {
         showNote()
     }
@@ -29,6 +34,10 @@ class ShowListNoteViewModel(val repository: NoteRepository):ViewModel() {
             }
         }
     }
+//
+
+
+
     fun favUpdate(noteDataModel: NoteDataModel){
         viewModelScope.launch {
             repository.favUpdate(noteDataModel)
@@ -37,11 +46,24 @@ class ShowListNoteViewModel(val repository: NoteRepository):ViewModel() {
     fun isFav (noteDataModel: NoteDataModel) {
         if (noteDataModel.isFav){
             noteDataModel.isFav = false
-        }else if (!noteDataModel.isFav){
-            noteDataModel.isFav = true
-        }
+        }else if (!noteDataModel.isFav)
+        {noteDataModel.isFav = true}
+
         favUpdate(noteDataModel)
 
+    }
+    fun delete(noteDataModel: NoteDataModel){
+        viewModelScope.launch {
+            repository.delete(noteDataModel)
+        }
+    }
+
+    fun search(data: String){
+        viewModelScope.launch {
+                repository.search(data).collect{ searchTask ->
+                    _allNotes.update { searchTask }
+                }
+        }
     }
 
 }

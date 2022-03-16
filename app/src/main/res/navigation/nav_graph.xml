@@ -8,19 +8,30 @@
     <fragment
         android:id="@+id/showListNoteFragment"
         android:name="com.khalid.daybyday.showListNoteUi.ShowListNoteFragment"
-        android:label="fragment_show_list_note"
+        android:label="Diary"
         tools:layout="@layout/fragment_show_list_note" >
         <action
             android:id="@+id/action_showListNoteFragment_to_addNoteFragment"
-            app:destination="@id/addNoteFragment" />
+            app:destination="@id/addNoteFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_showListNoteFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left" />
+        <action
+            android:id="@+id/action_showListNoteFragment_to_showMyFavoriteFragment"
+            app:destination="@id/showMyFavoriteFragment" />
     </fragment>
     <fragment
         android:id="@+id/addNoteFragment"
         android:name="com.khalid.daybyday.addNoteUi.AddNoteFragment"
-        android:label="fragment_add_note"
+        android:label="Add note"
         tools:layout="@layout/fragment_add_note" >
         <action
             android:id="@+id/action_addNoteFragment_to_showListNoteFragment"
@@ -29,7 +40,7 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.khalid.daybyday.detailNoteUi.DetailFragment"
-        android:label="fragment_detail"
+        android:label="Note detail"
         tools:layout="@layout/fragment_detail" >
         <argument
             android:name="id"
@@ -47,7 +58,7 @@
     <fragment
         android:id="@+id/editNoteFragment"
         android:name="com.khalid.daybyday.editNoteUi.EditNoteFragment"
-        android:label="fragment_edit_note"
+        android:label="Edit note"
         tools:layout="@layout/fragment_edit_note" >
         <action
             android:id="@+id/action_editNoteFragment_to_showListNoteFragment"
@@ -60,5 +71,17 @@
             app:argType="string" />
         <argument android:name="description"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/showMyFavoriteFragment"
+        android:name="com.khalid.daybyday.favNoteUi.ShowMyFavoriteFragment"
+        android:label="fragment_show_my_favorite"
+        tools:layout="@layout/fragment_show_my_favorite" >
+        <action
+            android:id="@+id/action_showMyFavoriteFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_showMyFavoriteFragment_to_showListNoteFragment"
+            app:destination="@id/showListNoteFragment" />
     </fragment>
 </navigation>
