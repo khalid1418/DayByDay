@@ -35,7 +35,7 @@ class ShowMyFavoriteFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = NoteAdapter({viewModel.isFav(it)},{},{
+        val adapter = NoteAdapter({viewModel.isFav(it)},{
             val action = ShowMyFavoriteFragmentDirections.actionShowMyFavoriteFragmentToDetailFragment(
                 it.id,
                 it.titleDate,
@@ -50,5 +50,10 @@ class ShowMyFavoriteFragment : Fragment() {
                 adapter.submitList(it)
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding=null
     }
 }

@@ -10,7 +10,7 @@ import com.khalid.daybyday.R
 import com.khalid.daybyday.dataLayer.roomData.NoteDataModel
 import com.khalid.daybyday.databinding.NoteItemBinding
 
-class NoteAdapter(private val onFavClicked:(NoteDataModel) -> Unit ,private val onDeleteClick:(NoteDataModel) -> Unit, private val onItemClicked: (NoteDataModel) -> Unit) :
+class NoteAdapter(private val onFavClicked:(NoteDataModel) -> Unit , private val onItemClicked: (NoteDataModel) -> Unit) :
     ListAdapter<NoteDataModel, NoteAdapter.NoteViewHolder>(DiffCallback) {
 
 
@@ -84,9 +84,7 @@ class NoteAdapter(private val onFavClicked:(NoteDataModel) -> Unit ,private val 
             }
             onFavClicked(current)
         }
-//        holder.binding.delete.setOnClickListener {
-//            onDeleteClick(current)
-//        }
+
 
     }
 }

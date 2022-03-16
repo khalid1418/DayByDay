@@ -22,7 +22,7 @@ class ShowListNoteFragment : Fragment() {
     private val viewModel: ShowListNoteViewModel by activityViewModels {
         ViewModelFactory((activity?.application as DayByDayApplication).repository)
     }
-    val adapter = NoteAdapter({viewModel.isFav(it) }, { viewModel.delete(it) }, {
+    val adapter = NoteAdapter({viewModel.isFav(it) }, {
         val action = ShowListNoteFragmentDirections.actionShowListNoteFragmentToDetailFragment(
             it.id,
             it.titleDate,
